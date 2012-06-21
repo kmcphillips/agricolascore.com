@@ -21,3 +21,7 @@ https://github.com/ronnqvist/simple-sinatra-html5boilerplate
 That was based off the amazing work of the HTML5 boiler plate team:
 
 http://html5boilerplate.com/
+
+And of course, jQuery Mobile is incredible:
+
+http://jquerymobile.com/

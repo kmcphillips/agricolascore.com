@@ -28,5 +28,6 @@ get '/js/script.js' do
 end
 
 get '/' do
+  @partials = Dir.glob(File.join(Sinatra::Application.root, "views", "pages", "*.haml")).map{|f| f.split(File::SEPARATOR).last.gsub(/\.haml$/, "") }.reject{|p| p == "index"}
   haml :index
 end

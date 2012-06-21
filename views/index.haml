@@ -1,0 +1,4 @@
+= haml :'pages/index'
+
+- @partials.each do |partial|
+  = haml "pages/#{partial}".to_sym
