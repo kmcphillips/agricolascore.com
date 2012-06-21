@@ -1,2 +1,15 @@
 %div{:'data-role' => "page", :id => "index"}
-  
+  %div{:'data-role' => "header"}  
+    %h1 Agricola Score
+
+  %div{:'data-role' => "content"}
+    %p
+      This is a score card for the board game
+      %a{href: "http://boardgamegeek.com/boardgame/31260/agricola", target: "_new"} Agricola
+      printed by
+      %a{href: "http://www.zmangames.com/boardgames/agricola.htm", target: "_new"} Z-Man Games
+      = "."
+
+    %p
+      %a{href: "#players", :'data-role' => "button"} New Game  
+

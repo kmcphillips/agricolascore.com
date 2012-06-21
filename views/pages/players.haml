@@ -1,1 +1,17 @@
 %div{:'data-role' => "page", :id => "players"}
+  %div{:'data-role' => "header"}
+    %a{href: "#index", :'data-icon' => "delete"} Cancel
+    %h1 Players
+    %a{href: "#scorecard"} Next
+
+  %div{:'data-role' => "content"}
+    %div{:'data-role' => "controlgroup", id: "player_count_buttons"}
+      - (1..5).each do |index|
+        %a{:'data-role' => "button", :'data-player-count' => index}= index
+
+    %ul{:'data-role' => "listview"}
+      - ["blue", "yellow", "green", "red", "purple"].each_with_index do |name, index|
+        %li{:'data-player-number' => index + 1}
+          %h3 Player #{index + 1}
+          %input{type: "text", name: "player1", id: "player1_name", :value name}
+      
