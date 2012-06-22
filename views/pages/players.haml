@@ -5,13 +5,14 @@
     %a{href: "#scorecard"} Next
 
   %div{:'data-role' => "content"}
-    %div{:'data-role' => "controlgroup", id: "player_count_buttons"}
+    %div{:'data-role' => "controlgroup", id: "player_count_buttons", :'data-type' => "horizontal"}
       - (1..5).each do |index|
-        %a{:'data-role' => "button", :'data-player-count' => index}= index
+        %a{:'data-role' => "button", :'data-theme' => "b", :'data-player-count' => index}= index
 
+  %div{:'data-role' => "content"}
     %ul{:'data-role' => "listview"}
       - ["blue", "yellow", "green", "red", "purple"].each_with_index do |name, index|
         %li{:'data-player-number' => index + 1}
           %h3 Player #{index + 1}
-          %input{type: "text", name: "player1", id: "player1_name", :value name}
+          %input{type: "text", name: "player1", id: "player1_name", value: name}
       
