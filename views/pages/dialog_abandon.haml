@@ -3,10 +3,10 @@
     %h1 Abandon?
 
   %div{:'data-role' => "content"}
-    %h2 Are you sure you want to cancel your game?
+    %h2 Are you sure want to leave this game?
     %p
-      Going back to the player entry screen will abandon the scores you have entered.
+      This will abandon the scores you have entered.
     
-    %a{href: "#players", :'data-role' => "button", :'data-theme' => "b"} Ok
-    %a{href: "", :'data-role' => "button", :'data-theme' => "c"} Cancel
+    %a{href: "#players", :'data-role' => "button", :'data-theme' => "b", :'data-transition' => "slide", :'data-direction' => "reverse"} Ok
+    %a{:'data-rel' => "back", :'data-role' => "button", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse"} Cancel
 

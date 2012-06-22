@@ -1,16 +1,16 @@
 %div{:'data-role' => "page", :id => "players"}
   %div{:'data-role' => "header"}
-    %a{href: "#index", :'data-icon' => "delete"} Cancel
+    %a{href: "#index", :'data-icon' => "arrow-l", :'data-transition' => "slide", :'data-direction' => "reverse"} Cancel
     %h1 Players
-    %a{href: "#scorecard"} Next
+    %a{href: "#scorecard", :'data-icon' => "arrow-r", :'data-transition' => "slide"} Next
 
   %div{:'data-role' => "content"}
     %div{:'data-role' => "controlgroup", id: "player_count_buttons", :'data-type' => "horizontal"}
       - (1..5).each do |index|
-        %a{:'data-role' => "button", :'data-theme' => "b", :'data-player-count' => index}= index
+        %a{:'data-role' => "button", :'data-player-count' => index}= index
 
   %div{:'data-role' => "content"}
-    %ul{:'data-role' => "listview"}
+    %ul{:'data-role' => "listview", id: "player_list"}
       - ["blue", "yellow", "green", "red", "purple"].each_with_index do |name, index|
         %li{:'data-player-number' => index + 1}
           %h3 Player #{index + 1}
