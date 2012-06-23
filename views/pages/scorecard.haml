@@ -4,5 +4,10 @@
     %h1 Scorecard
     %a{href: "#results", :'data-icon' => "arrow-r", :'data-transition' => "slide"} Next
 
+  %div{:'data-role' => "collapsible", :'data-content-theme' => "d", id: "scorecard_prototype", :class => "hidden"}
+    %h3 A Player
+    %p The score stuff
+
   %div{:'data-role' => "content"}
-      
+    %div{:'data-role' => "collapsible-set", id: "scorecard_container"}
+
