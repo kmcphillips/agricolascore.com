@@ -34,33 +34,29 @@ window.playerButtonClick = ->
 window.savePlayers = ->
   window.players = []
 
-  console.log "saving players"
-
   $("#player_list li").each (index, player) ->
     if index + 1 <= window.playerCount
-      console.log "saved player " + index
       window.players.push
         name: $(player).find("input[type=text]").val()
 
-
   container = $("#scorecard_container")
-  prototype = $("#scorecard_prototype")
-  first = true
 
-  container.html("")
+  for current, index in container.find("div.player")
+    current = $(current)
 
-  for player in window.players
-    console.log "creating form for player " + player.name
-    current = prototype.clone()
-    current.find("h3").html(player.name)
-    current.removeClass("hidden")
+    resetForm(current)
 
-    if first
-      console.log "uncollapsing the first player"
-      current.data("collapsed", "false")
-      first = false
+    if index < window.players.length
+      player = window.players[index]
+      current.find("h3 span.player_name").html(player.name)
+      current.show()
+    else
+      current.find("h3 span.player_name").html("")
+      current.hide()
 
-    container.append(current)
+
+window.resetForm = (current) ->
+  # todo: reset form
 
 
 window.currentPageId = ->
