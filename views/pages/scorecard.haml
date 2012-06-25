@@ -5,9 +5,70 @@
     %a{href: "#results", :'data-icon' => "arrow-r", :'data-transition' => "slide"} Next
 
   %div{:'data-role' => "collapsible-set", id: "scorecard_container"}
-    - (1..5).each do |index|
-      %div{:'data-role' => "collapsible", :'data-content-theme' => "d", :class => "player", :'data-collapsed' => (index == 1 ? "false" : "true")}
-        %h3 
-          %span.player_name player_name
-        %p TODO: the form
+    %form
+      - (1..5).each do |index|
+        %div{:'data-role' => "collapsible", :'data-content-theme' => "d", :class => "player", :'data-collapsed' => (index == 1 ? "false" : "true")}
+          %h3 
+            %span.player_name player_name
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "fields_#{index}"} Fields
+            %input{type: "range", name: "fields_#{index}", id: "fields_#{index}", value: "0", min: "0", max: "5", class: "fields"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "pastures_#{index}"} Pastures
+            %input{type: "range", name: "pastures_#{index}", id: "pastures_#{index}", value: "0", min: "0", max: "4", class: "pastures"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "wheat_#{index}"} Wheat
+            %input{type: "range", name: "wheat_#{index}", id: "wheat_#{index}", value: "0", min: "0", max: "8", class: "wheat"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "vegetable_#{index}"} Vegetable
+            %input{type: "range", name: "vegetable_#{index}", id: "vegetable_#{index}", value: "0", min: "0", max: "4", class: "vegetable"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "sheep_#{index}"} Sheep
+            %input{type: "range", name: "sheep_#{index}", id: "sheep_#{index}", value: "0", min: "0", max: "8", class: "sheep"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "boar_#{index}"} Boar
+            %input{type: "range", name: "boar_#{index}", id: "boar_#{index}", value: "0", min: "0", max: "7", class: "boar"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "cattle_#{index}"} Cattle
+            %input{type: "range", name: "cattle_#{index}", id: "cattle_#{index}", value: "0", min: "0", max: "6", class: "cattle"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "unused_#{index}"} Unused Spaces
+            %input{type: "range", name: "unused_#{index}", id: "unused_#{index}", value: "0", min: "0", max: "12", class: "unused"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "stables_#{index}"} Fenced In Stables
+            %input{type: "range", name: "stables_#{index}", id: "stables_#{index}", value: "0", min: "0", max: "6", class: "stables"}
 
+          %div{:'data-role' => "fieldcontain"}
+            %fieldset{:'data-role' => "controlgroup", :'data-type' => "horizontal"}
+              %legend House Construction
+              %input{type: "radio", name: "house_wood_#{index}", id: "house_wood_#{index}", value: "wood", checked: "checked"}
+              %label{for: "house_wood_#{index}"} Wood
+              %input{type: "radio", name: "house_clay_#{index}", id: "house_clay_#{index}", value: "clay"}
+              %label{for: "house_clay_#{index}"} Clay
+              %input{type: "radio", name: "house_stone_#{index}", id: "house_stone_#{index}", value: "stone"}
+              %label{for: "house_stone_#{index}"} Stone
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "rooms_#{index}"} Number of Rooms
+            %input{type: "range", name: "rooms_#{index}", id: "rooms_#{index}", value: "0", min: "2", max: "5", class: "rooms"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "family_#{index}"} Family Members  
+            %input{type: "range", name: "family_#{index}", id: "family_#{index}", value: "0", min: "0", max: "6", class: "family"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "cards_#{index}"} Points for Cards 
+            %input{type: "text", name: "cards_#{index}", id: "cards_#{index}", value: "0", class: "cards"}
+          
+          %div{:'data-role' => "fieldcontain"}
+            %label{:for => "bonus_#{index}"} Bonus Points 
+            %input{type: "text", name: "bonus_#{index}", id: "bonus_#{index}", value: "0", class: "bonus"}
