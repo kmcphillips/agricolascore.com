@@ -2,7 +2,7 @@
   %div{:'data-role' => "header"}
     %a{href: "#dialog_abandon", :'data-icon' => "arrow-l", :'data-rel' => "dialog", :'data-transition' => "pop"} Cancel
     %h1 Scorecard
-    %a{href: "#results", :'data-icon' => "arrow-r", :'data-transition' => "slide"} Next
+    %a{href: "#results", :'data-icon' => "arrow-r", :'data-transition' => "slide", :class => "calculate_score"} Next
 
   %div{:'data-role' => "collapsible-set", id: "scorecard_container"}
     %form
@@ -50,11 +50,11 @@
           %div{:'data-role' => "fieldcontain"}
             %fieldset{:'data-role' => "controlgroup", :'data-type' => "horizontal"}
               %legend House Construction
-              %input{type: "radio", name: "house_wood_#{index}", id: "house_wood_#{index}", value: "wood", checked: "checked"}
+              %input{type: "radio", name: "house_#{index}", id: "house_wood_#{index}", value: "wood", checked: "checked"}
               %label{for: "house_wood_#{index}"} Wood
-              %input{type: "radio", name: "house_clay_#{index}", id: "house_clay_#{index}", value: "clay"}
+              %input{type: "radio", name: "house_#{index}", id: "house_clay_#{index}", value: "clay"}
               %label{for: "house_clay_#{index}"} Clay
-              %input{type: "radio", name: "house_stone_#{index}", id: "house_stone_#{index}", value: "stone"}
+              %input{type: "radio", name: "house_#{index}", id: "house_stone_#{index}", value: "stone"}
               %label{for: "house_stone_#{index}"} Stone
           
           %div{:'data-role' => "fieldcontain"}
