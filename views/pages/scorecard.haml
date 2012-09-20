@@ -48,22 +48,22 @@
             %input{type: "range", name: "stables_#{index}", id: "stables_#{index}", value: "0", min: "0", max: "6", class: "stables"}
 
           %div{:'data-role' => "fieldcontain"}
-            %fieldset{:'data-role' => "controlgroup", :'data-type' => "horizontal"}
+            %fieldset{:'data-role' => "controlgroup", :'data-type' => "horizontal", class: "house_construction"}
               %legend House Construction
-              %input{type: "radio", name: "house_#{index}", id: "house_wood_#{index}", value: "wood", checked: "checked"}
+              %input{type: "radio", name: "house_#{index}", id: "house_wood_#{index}", class: "wood", value: "wood", checked: "checked"}
               %label{for: "house_wood_#{index}"} Wood
-              %input{type: "radio", name: "house_#{index}", id: "house_clay_#{index}", value: "clay"}
+              %input{type: "radio", name: "house_#{index}", id: "house_clay_#{index}", class: "clay", value: "clay"}
               %label{for: "house_clay_#{index}"} Clay
-              %input{type: "radio", name: "house_#{index}", id: "house_stone_#{index}", value: "stone"}
+              %input{type: "radio", name: "house_#{index}", id: "house_stone_#{index}", class: "stone", value: "stone"}
               %label{for: "house_stone_#{index}"} Stone
           
           %div{:'data-role' => "fieldcontain"}
             %label{:for => "rooms_#{index}"} Number of Rooms
-            %input{type: "range", name: "rooms_#{index}", id: "rooms_#{index}", value: "0", min: "2", max: "5", class: "rooms"}
+            %input{type: "range", name: "rooms_#{index}", id: "rooms_#{index}", value: "2", min: "2", max: "5", class: "rooms"}
           
           %div{:'data-role' => "fieldcontain"}
             %label{:for => "family_#{index}"} Family Members  
-            %input{type: "range", name: "family_#{index}", id: "family_#{index}", value: "0", min: "0", max: "6", class: "family"}
+            %input{type: "range", name: "family_#{index}", id: "family_#{index}", value: "2", min: "2", max: "6", class: "family"}
           
           %div{:'data-role' => "fieldcontain"}
             %label{:for => "cards_#{index}"} Points for Cards 
@@ -72,3 +72,5 @@
           %div{:'data-role' => "fieldcontain"}
             %label{:for => "bonus_#{index}"} Bonus Points 
             %input{type: "text", name: "bonus_#{index}", id: "bonus_#{index}", value: "0", class: "bonus"}
+
+          %a.top{:'data-ajax' => false, :'data-role' => "button", :href => "#top"} Back to Top

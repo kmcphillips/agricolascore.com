@@ -11,7 +11,7 @@
 
   %div{:'data-role' => "content"}
     %ul{:'data-role' => "listview", id: "player_list"}
-      - ["blue", "yellow", "green", "red", "purple"].each_with_index do |name, index|
+      - ["Blue", "Yellow", "Green", "Red", "Purple"].each_with_index do |name, index|
         %li{:'data-player-number' => index + 1}
           %h3 Player #{index + 1}
           %input{type: "text", name: "player1", id: "player1_name", value: name}
