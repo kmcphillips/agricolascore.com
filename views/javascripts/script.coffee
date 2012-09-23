@@ -6,6 +6,8 @@ $(document).bind 'pageinit', ->
   $("#player_count_buttons a").bind "click", playerButtonClick
   $("a.save_players").bind "click", savePlayers
   $("a.calculate_score").bind "click", calculateScore
+  $("a.abandon").bind "click", resetForm
+  $("a.resume").bind "click", populatePlayersFromResume
   $("#player_list li input[type=text]").bind "change", savePlayers
   $("#scorecard_container .player h3.ui-collapsible-heading").bind "click", ->
     $.mobile.silentScroll(0)
@@ -23,6 +25,9 @@ $(document).bind 'pagechange', (something, data) ->
   if currentPageId() == "scorecard"
     houseConstructionClick.call($(".house_construction input"))
 
+  if currentPageId() == "index"
+    setResumeButton()
+
 $(document).delegate 'a.top', 'click', ->
     $.mobile.silentScroll(0)
     return false
@@ -30,6 +35,22 @@ $(document).delegate 'a.top', 'click', ->
 
 window.log = (message) ->
   window.console.log(message) if(window.console && window.console.log)
+
+
+window.toSentence = (array) ->
+  result = ""
+
+  for index in [0...array.length]
+    element = array[index]
+
+    if result == ""
+      result = element
+    else if index == array.length - 1
+      result = result + " and " + element
+    else
+      result = result + ", " + element
+
+  result
 
 
 window.playerButtonClick = ->
@@ -43,7 +64,27 @@ window.playerButtonClick = ->
       $(this).show()
     else
       $(this).hide()
-  
+
+
+window.setResumeButton = ->
+  container = $("#resume_button")
+
+  if $.cookies.get("players")
+    container.find("span.names").html(toSentence($.cookies.get("players")))
+    container.show()
+  else
+    container.hide()
+
+
+window.populatePlayersFromResume = ->
+  names = $.cookies.get("players")
+  window.playerCount = names.length
+
+  $("#player_list li").each (index) ->
+    row = $(this)
+    if index < names.length
+      row.find("input").val(names[index])
+
 
 window.savePlayers = ->
   window.players = []
@@ -56,19 +97,17 @@ window.savePlayers = ->
 
   container = $("#scorecard_container")
 
-  resetForm(current)
-
   for current, index in container.find("div.player")
     current = $(current)
 
-
     if index < window.players.length
-      player = window.players[index]
-      current.find("h3 span.player_name").html(player.name)
+      current.find("h3 span.player_name").html(window.players[index].name)
       current.show()
     else
       current.find("h3 span.player_name").html("")
       current.hide()
+
+  $.cookies.set("players", (window.players.map (p) -> p.name), 365)
 
 
 window.houseConstructionClick = ->
@@ -76,7 +115,7 @@ window.houseConstructionClick = ->
   $(this).closest("div.player").find("input.rooms").slider(action)
 
 
-window.resetForm = (current) ->
+window.resetForm = ->
   container = $("#scorecard_container")
 
   container.find("input.fields, input.pastures, input.wheat, input.vegetable, input.sheep, input.boar, input.cattle, input.unused, input.stables, input.rooms, input.family").each ->
@@ -154,7 +193,7 @@ window.calculateScore = ->
   if winners.length == 1
     $("#winner").html(winners[0].name + " wins with " + winners[0].score + " points!")
   else
-    $("#winner").html((winner.name for winner in winners).join(", ") + " tie with " + winners[0].score + " points!")
+    $("#winner").html(toSentence(winner.name for winner in winners) + " tie with " + winners[0].score + " points!")
       
 
 window.parseValue = (form, field) ->

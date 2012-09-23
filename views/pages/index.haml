@@ -1,15 +1,20 @@
 %div{:'data-role' => "page", :id => "index"}
   %div{:'data-role' => "header"}  
-    %h1 Agricola Score
+    %h1 Agricola Score Card
 
   %div{:'data-role' => "content"}
-    %p
+    %p.center
       This is a score card for the board game
       %a{href: "http://boardgamegeek.com/boardgame/31260/agricola", target: "_new"} Agricola
       printed by
       %a{href: "http://www.zmangames.com/boardgames/agricola.htm", target: "_new"} Z-Man Games
       = "."
 
-    %p
-      %a{href: "#players", :'data-role' => "button", :'data-transition' => "slide", :'data-theme' => "d"} New Game  
+    %p.center
+      %a{href: "#players", :'data-role' => "button", :'data-transition' => "slide", :'data-theme' => "d"} Score a new game
 
+      %span#resume_button.hidden
+        Or
+        %a{href: "#players", :'data-role' => "button", :'data-transition' => "slide", :'data-theme' => "d", class: "resume"}
+          Score another game with
+          %span.names
