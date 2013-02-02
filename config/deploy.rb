@@ -7,7 +7,7 @@ set :keep_releases, 5
 
 ## Configure source control
 set :scm, "git"
-set :repository,  "git://github.com/kimos/agricolascore.com.git"
+set :repository,  "git://github.com/kmcphillips/agricolascore.com.git"
 set :branch, "master"
 set :deploy_via, :checkout
 set :git_shallow_clone, 1
