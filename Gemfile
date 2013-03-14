@@ -4,7 +4,7 @@ gem 'sinatra'
 gem 'haml'
 gem 'sass'
 gem 'capistrano'
-gem 'capistrano_colors'
+gem 'rvm-capistrano'
 gem 'coffee-script'
 gem 'therubyracer', :platform => :ruby
 

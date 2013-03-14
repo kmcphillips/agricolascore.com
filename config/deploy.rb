@@ -1,6 +1,9 @@
+require 'bundler/capistrano'
+require 'rvm/capistrano'
+
 ## Deployment config for production
 set :application, "Agricola Score"
-set :deploy_to, "/var/www/kevin/data/www/agricolascore.com"
+set :deploy_to, "/home/kevin/agricolascore.com"
 set :user, "kevin"
 set :use_sudo, false
 set :keep_releases, 5
@@ -16,8 +19,8 @@ set :git_shallow_clone, 1
 default_run_options[:pty] = true
 
 ## Role for production
-role :web, "68.169.58.121"
-role :app, "68.169.58.121"
+role :web, "198.211.110.159"
+role :app, "198.211.110.159"
 
 ## Tasks for deploying to Apache Passenger
 namespace :deploy do
